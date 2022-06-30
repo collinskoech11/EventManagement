@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-urlPatterns = [
+urlpatterns = [
     path('appusers', views.AppUserList.as_view()),
     path('appusers/new', views.AppUserCreate.as_view()),
     path('appuser/detail/<int:pk>', views.AppUserDetail.as_view()),

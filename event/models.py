@@ -13,7 +13,7 @@ import datetime
 class AppUser(models.Model):
     username = models.CharField(max_length=200)
     email= models.CharField(max_length=200, null=True, blank=True)
-    role = models.CharField(max_length=200,default='get pesa guide')
+    role = models.CharField(max_length=200)
     Company = models.TextField()
     password = models.CharField(max_length=200)
     location = models.CharField(max_length=200)
