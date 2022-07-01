@@ -67,7 +67,7 @@ class EventDetail(APIView):
 class RsvpList(APIView):
     def get(self, request):
         rsvps = Rsvp.objects.all()
-        serializer = EventSerializer(rsvps, many=True)
+        serializer = RsvpSerializer(rsvps, many=True)
         return Response(serializer.data)
 
 class RsvpCreate(APIView):

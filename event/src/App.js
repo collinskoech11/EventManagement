@@ -9,6 +9,8 @@ import ViewRsvps from './Pages/Manager/ViewRsvps';
 import SubmitRsvp from './Pages/User/SubmitRsvp';
 import Success from './Pages/User/Success';
 import UpcomingEvents from './Pages/User/UpcomingEvents'
+import UserCreation from './Pages/Onboarding/UserCreation'
+import ListUsers from './Pages/Onboarding/ListUsers';
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
         <Route path="/Pages/User/SubmitRsvp" element={<SubmitRsvp/>}/>
         <Route path="/Pages/User/Success" element={<Success/>}/>
         <Route path="/Pages/User/UpcomingEvents" element={<UpcomingEvents/>}/>
+        <Route path="/Pages/Onboarding/UserCreation" element={<UserCreation/>}/>
+        <Route path="/Pages/Onboarding/ListUsers" element={<ListUsers/>}/>
     </Routes>
     </>
   );

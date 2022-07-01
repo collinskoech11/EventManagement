@@ -5,10 +5,12 @@ function Header() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="/">Event Management</Navbar.Brand>
+        <Navbar.Brand href="/Pages/User/UpcomingEvents">Event Management</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+            <Nav.Link href="/Pages/Onboarding/UserCreation">Register</Nav.Link>
+            <Nav.Link href="/Pages/Onboarding/ListUsers">Our Users</Nav.Link>
             <Nav.Link href="/Pages/User/UpcomingEvents">Upcoming Events</Nav.Link>
             <Nav.Link href="/Pages/User/SubmitRsvp">Submit an RSVP</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
