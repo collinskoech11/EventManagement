@@ -1,8 +1,24 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {Card, Button, Nav, Header, Body, Title, Text, Link, Item} from 'react-bootstrap'
+// http://127.0.0.1:8000/
 
 
 function UpcomingEvents() {
+
+    const [Users, fetchUsers] = useState([])
+
+    const getData = () => {
+        fetch('http://localhost:8000/events',{mode:'cors'})
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res)
+          fetchUsers(res)
+        })
+    }
+
+    useEffect(() => {
+      getData()
+    }, [])
   return (
     <>
     
