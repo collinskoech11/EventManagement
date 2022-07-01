@@ -23,7 +23,7 @@ function UpcomingEvents() {
     <>
     
     <div className="mydiv">
-    <h4>UpcomingEvents</h4>
+    <h4>Upcoming Events</h4>
 
     {Events.map((item,i) => {
       return (

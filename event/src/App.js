@@ -17,6 +17,7 @@ function App() {
   return (
     <>
     <Header/>
+    <div className="pusher"></div>
     <Routes>
       <Route path="/" element={<Home/>}/>
         <Route path="/Pages/EventDetail" element={<EventDetail/>}/>

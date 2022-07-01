@@ -2,10 +2,21 @@
     padding:10%;
     padding-top:5%;
     padding-bottom: 2px;
+    padding-top: 80px;
 }
 @media (max-width:1000px){
     .mydiv{
         padding:15px;
         padding-top:10px;
     }
+}
+.connav{
+    position: fixed;
+    width:100vw;
+    height:auto;
+    z-index: 1000;
+}
+.pusher{
+    width:100vw;
+    height:80px;
 }

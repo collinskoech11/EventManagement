@@ -43,7 +43,7 @@ function ListUsers() {
               {item.role} | <b>{item.location}</b><br/>
               {item.Company}<br/>
             </Card.Text>
-            <Button variant="primary">Register for the event</Button>
+           
           </Card.Body>
         </Card>
         </div>
