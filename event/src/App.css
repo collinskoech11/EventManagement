@@ -1,6 +1,7 @@
 .mydiv{
     padding:10%;
     padding-top:5%;
+    padding-bottom: 2px;
 }
 @media (max-width:1000px){
     .mydiv{
