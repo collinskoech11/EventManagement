@@ -10,7 +10,7 @@ class AppUserSerializer(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ['id','title','Venue','cateory','description','type','created_at', 'date', 'time_created']
+        fields = ['id','title','Venue','category','description','type','created_at', 'date', 'time_created']
         #skipped image for now
 
 class RsvpSerializer(serializers.ModelSerializer):
