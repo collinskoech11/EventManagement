@@ -1,0 +1,10 @@
+.mydiv{
+    padding:10%;
+    padding-top:5%;
+}
+@media (max-width:1000px){
+    .mydiv{
+        padding:15px;
+        padding-top:10px;
+    }
+}
