@@ -12,7 +12,6 @@ function CreateEvent() {
   const [created_at, setCreated_at] = useState("")
   const [date, setDate] = useState("")
   const [time_created, setTime_created] = useState("")
-  const [password, setPassword ] = useState("")
   let handleSubmit = async (e) => {
   
     e.preventDefault();
@@ -32,7 +31,6 @@ function CreateEvent() {
               created_at: created_at,
               date: date,
               time_created: time_created,
-              password: password,
           }),
         });
         let resJson = await res.json();
