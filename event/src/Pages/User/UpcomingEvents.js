@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import {Card, Button, Nav} from 'react-bootstrap'
+import {useNavigate} from 'react-router-dom'
 // http://127.0.0.1:8000/
 
 
 function UpcomingEvents() {
 
     const [Events, fetchEvents] = useState([])
+    const [book, setBook] = useState(1)
 
     const getData = () => {
         fetch('http://localhost:8000/events',{mode:'cors'})
@@ -19,6 +21,22 @@ function UpcomingEvents() {
     useEffect(() => {
       getData()
     }, [])
+    let navigate = useNavigate()
+     const handleClick = (event) => {
+      setBook((event.currentTarget.id));
+      console.log(book);
+      let path = '/Pages/EventDetail'
+      navigate(path, {state:{x:book}})
+        // { component: <Navigate to="/Pages/EventDetail"/>}
+      // redirects to /Pages/EventDetail
+    }
+    const handleSubmit = (event, x) => {
+      setBook(event.currentTarget.id)
+      console.log(x)
+      let path = '/Pages/User/SubmitRsvp'
+      // navigate(path)
+      // redirects to /Pages/User/SubmitRsvp
+    }
   return (
     <>
     
@@ -26,6 +44,7 @@ function UpcomingEvents() {
     <h4>Upcoming Events</h4>
 
     {Events.map((item,i) => {
+      var x = i+1;
       return (
         <div className="mydiv" key={i}>
         <Card>
@@ -43,8 +62,8 @@ function UpcomingEvents() {
               {item.type} | <b>{item.Venue}</b><br/>
               {item.date}<br/>
             </Card.Text>
-           <a href="/Pages/EventDetail"> <Button variant="primary">View Event Details</Button></a><br/><br/>
-           <a href="/Pages/User/SubmitRsvp"> <Button variant="primary">Register for the event</Button></a>
+              <Button variant="primary" id={x} onClick={handleClick}>View Event Details</Button><br/><br/>
+              <Button onClick={handleSubmit} variant="primary">Register for the event</Button>
           </Card.Body>
         </Card>
         </div>

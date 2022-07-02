@@ -3,6 +3,23 @@ import {Form, Group, Label, Control, Check, Button} from 'react-bootstrap'
 import React from 'react'
 
 function UserCreation() {
+  let handleSubmit = async (e) => {
+    e.preventDefault();
+    try{
+        let res =  await fetch("http://localhost:8000/rsvp/new",{
+          method: "POST",
+          body: JSON.stringify({
+
+          }),
+        });
+        let resJson = await res.json();
+        if (res.status == 200){
+
+        }
+    } catch(err){
+        console.log(err)
+    }
+  }
   return (
     <div className="mydiv">
       <Form>

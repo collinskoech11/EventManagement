@@ -58,8 +58,8 @@ class EventDetail(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
     def get(self, request, pk):
-        article = self.get_object(pk)
-        serializer = EventSerializer(article)
+        event = self.get_object(pk)
+        serializer = EventSerializer(event)
         return Response(serializer.data)
 
         

@@ -1,8 +1,22 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Carousel, Row, Col, Button, } from 'react-bootstrap'
-
+import {useLocation} from "react-router-dom"
 function EventDetail() {
-  const [color, setColor] = useState("#80CED7");
+  const [Event, fetchEvent] = useState([]);
+  const location = useLocation();
+  // const [book] = useState(1);
+ const getData = () => {
+  fetch(`http://localhost:8000/event/detail/${location.state.x}`, {mode: 'cors'})
+  .then((res) => res.json())
+  .then((res) => {
+    console.log(res)
+    fetchEvent(res)
+  })
+ }
+ useEffect(() =>{
+  getData()
+ },[])
+
   return (
     <div className="detail">
       <Carousel variant="light">
@@ -42,26 +56,39 @@ function EventDetail() {
       </Carousel>
       <Row className="item">
       <Col className="info">
-        <h2>Cocktail Party</h2>
+        <h2>{Event.title}</h2>
         <br />
         <br />
-        <p>Description</p>
         <Row className="buttonRow">
-          <Col>
-            <p>Available Colors:</p>
-            <Button id="blue" onClick={() => setColor("#80CED7")}></Button>
-            <Button id="flax" onClick={() => setColor("#E9D985")}></Button>
-            <Button id="red" onClick={() => setColor("#BF211E")}></Button>
+          <Col style={{ textAlign: "left" }}>
+            <h5>Event Type:</h5>
+            <p>{Event.type}</p>
           </Col>
           <Col style={{ textAlign: "right" }}>
-            <p>Price: 1000</p>
-            <a href="/Pages/User/SubmitRsvp">
-              <Button id="buy" variant="primary">
-                Register 
-              </Button>
-            </a>
+            <h5>Venue</h5>
+            <p>{Event.Venue}</p>
           </Col>
         </Row>
+        <Row className="buttonRow">
+          <Col style={{ textAlign: "left" }}>
+            <h5>Time</h5>
+            <p>{Event.time_created}</p>
+            
+          </Col>
+          <Col style={{ textAlign: "right" }}>
+            <h5>Date</h5>
+            <p>{Event.date}</p>
+          </Col>
+        </Row>
+        <Row className="buttonRow">
+          <h5>Description</h5>
+          <p>{Event.description}</p>
+        </Row>
+        <a href="/Pages/User/SubmitRsvp">   
+          <Button id="buy" variant="primary">
+            Register 
+          </Button>
+        </a>
       </Col>
     </Row>
     </div>
