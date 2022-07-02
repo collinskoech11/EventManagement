@@ -7,7 +7,7 @@ import {useNavigate} from 'react-router-dom'
 function UpcomingEvents() {
 
     const [Events, fetchEvents] = useState([])
-    const [book, setBook] = useState(1)
+    const [book, setBook] = useState()
 
     const getData = () => {
         fetch('http://localhost:8000/events',{mode:'cors'})
@@ -22,11 +22,11 @@ function UpcomingEvents() {
       getData()
     }, [])
     let navigate = useNavigate()
-     const handleClick = (event) => {
+     const handleClick = (event, x) => {
       setBook((event.currentTarget.id));
-      console.log(book);
+      console.log(event.currentTarget.id)
       let path = '/Pages/EventDetail'
-      navigate(path, {state:{x:book}})
+      navigate(path, {state:{x:event.currentTarget.id}})
         // { component: <Navigate to="/Pages/EventDetail"/>}
       // redirects to /Pages/EventDetail
     }
@@ -34,7 +34,7 @@ function UpcomingEvents() {
       setBook(event.currentTarget.id)
       console.log(x)
       let path = '/Pages/User/SubmitRsvp'
-      // navigate(path)
+      navigate(path)
       // redirects to /Pages/User/SubmitRsvp
     }
   return (
@@ -44,9 +44,9 @@ function UpcomingEvents() {
     <h4>Upcoming Events</h4>
 
     {Events.map((item,i) => {
-      var x = i+1;
+      let x = i + 1;
       return (
-        <div className="mydiv" key={i}>
+        <div className="mydiv" key={x}>
         <Card>
           <Card.Header>
             <Nav variant="tabs" defaultActiveKey="#first">
