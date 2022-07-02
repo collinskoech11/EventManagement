@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Card, Button, Nav, Header, Body, Title, Text, Link, Item} from 'react-bootstrap'
+import {Card, Button, Nav} from 'react-bootstrap'
 // http://127.0.0.1:8000/
 
 function MyEvents() {
@@ -39,7 +39,8 @@ function MyEvents() {
               {item.type} | <b>{item.Venue}</b><br/>
               {item.date}<br/>
             </Card.Text>
-            <Button variant="primary">Register for the event</Button>
+            <a href="/Pages/EventDetail"><Button variant="primary">Register for the event</Button></a><br/><br/>
+            <a href="/Pages/Manager/ViewRsvps"><Button variant="primary">Event Details</Button></a>
           </Card.Body>
         </Card>
         </div>

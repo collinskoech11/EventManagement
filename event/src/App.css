@@ -20,3 +20,21 @@
     width:100vw;
     height:80px;
 }
+.detail{
+    align-items: center;
+    text-align: center;
+    padding: 100px;
+}
+.detail h2 {
+    padding-top: 30px;
+}
+@media (max-width:1000px){
+    .detail{
+        padding:15px;
+        padding-top:10px;
+    }
+}
+a{
+    padding-bottom:20px;
+    margin-left:10px;
+}
