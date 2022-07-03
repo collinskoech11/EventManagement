@@ -34,7 +34,7 @@ function CreateEvent() {
           }),
         });
         let resJson = await res.json();
-        if (res.status == 200){
+        if (res.status === 200){
           setTitle("")
           setVenue("")
           setCategory("")
@@ -96,7 +96,7 @@ function CreateEvent() {
 
         <Form.Group className="mb-3">
           <Form.Label>Event Date</Form.Label>
-          <Form.Control type="text" placeholder="Friendly Meet Up" onChange={(e) => setDate(e.target.value)}/>
+          <Form.Control type="text" placeholder="2022-12-12" onChange={(e) => setDate(e.target.value)}/>
           <Form.Text className="text-muted"> 
           When is it happening
           </Form.Text>
@@ -104,12 +104,12 @@ function CreateEvent() {
 
         <Form.Group className="mb-3">
           <Form.Label>Created At</Form.Label>
-          <Form.Control type="text" placeholder="Friendly Meet Up" onChange={(e) => setCreated_at(e.target.value)}/>
+          <Form.Control type="text" placeholder="2022-12-12" onChange={(e) => setCreated_at(e.target.value)}/>
         </Form.Group>
 
         <Form.Group className="mb-3">
         <Form.Label>Time</Form.Label>
-        <Form.Control type="text" placeholder="Friendly Meet Up" onChange={(e) => setTime_created(e.target.value)}/>
+        <Form.Control type="text" placeholder="2022-12-12" onChange={(e) => setTime_created(e.target.value)}/>
       </Form.Group>
 
 

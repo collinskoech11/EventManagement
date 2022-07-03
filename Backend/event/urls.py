@@ -10,4 +10,5 @@ urlpatterns = [
     path('event/detail/<int:pk>', views.EventDetail.as_view()),
     path('rsvps', views.RsvpList.as_view()),
     path('rsvp/new', views.RsvpCreate.as_view()),
+    # path('rsvp/event/<str:event>', views.EventRsvp.as_view()),
 ]

@@ -89,3 +89,14 @@ class RsvpDetail(APIView):
         rsvp = self.get_object(pk)
         serializer = RsvpSerializer(rsvp)
         return Response(serializer.data)
+
+# class EventRsvp(APIView):
+#     def get_object(self, event):
+#         try:
+#             return Rsvp.objects.get(event=event)
+#         except Rsvp.DoesNotExist:
+#             return Response(status=status.HTTP_404_NOT_FOUND)
+#     def get(self,request, event):
+#         rsvp = self.get_object(event)
+#         serializer = RsvpSerializer(rsvp, many=True)
+#         return Response(serializer.data)

@@ -35,6 +35,7 @@ function UpcomingEvents() {
       console.log(x)
       let path = '/Pages/User/SubmitRsvp'
       navigate(path)
+      navigate(path, {state:{x:event.currentTarget.id}})
       // redirects to /Pages/User/SubmitRsvp
     }
   return (

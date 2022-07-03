@@ -14,7 +14,13 @@ function MyEvents() {
         fetchEvents(res)
       })
   }
-
+  let navigate = useNavigate()
+  const handleClick = (event, x) => {
+    let path = '/Pages/Manager/ViewRsvps'
+    navigate(path, {state:{x:event.currentTarget.id}})
+      // { component: <Navigate to="/Pages/EventDetail"/>}
+    // redirects to /Pages/EventDetail
+ }
   useEffect(() => {
     getData()
   }, [])
@@ -40,8 +46,7 @@ function MyEvents() {
               {item.type} | <b>{item.Venue}</b><br/>
               {item.date}<br/>
             </Card.Text>
-            <a href="/Pages/EventDetail"><Button variant="primary">Register for the event</Button></a><br/><br/>
-            <a href="/Pages/Manager/ViewRsvps"><Button variant="primary">Event Details</Button></a>
+            <Button variant="primary" onClick={handleClick}>Event Details</Button>
           </Card.Body>
         </Card>
         </div>
