@@ -8,10 +8,9 @@ class AppUserSerializer(serializers.ModelSerializer):
         #skipped image for now
 
 class EventSerializer(serializers.ModelSerializer):
-    banner_url = serializers.ImageField(required=False)
     class Meta:
         model = Event
-        fields = ['id','title','banner_url','Venue','category','description','type','created_at', 'date', 'time_created']
+        fields = ['id','title','banner','Venue','category','description','type','created_at', 'date', 'time_created']
         #skipped image for now
 
 class RsvpSerializer(serializers.ModelSerializer):

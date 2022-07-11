@@ -45,7 +45,7 @@ function UpcomingEvents() {
     <h4>Upcoming Events</h4>
 
     {Events.map((item,i) => {
-      let x = i + 1;
+      let x = item.id;
       return (
         <div className="mydiv" key={x}>
         <Card>

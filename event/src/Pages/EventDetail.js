@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import {Carousel, Row, Col, Button, } from 'react-bootstrap'
+
 import {useLocation} from "react-router-dom"
 function EventDetail() {
   const [Event, fetchEvent] = useState([]);
   const location = useLocation();
   // const [book] = useState(1);
+  console.log(location.state.x)
  const getData = () => {
   fetch(`http://localhost:8000/event/detail/${location.state.x}`, {mode: 'cors'})
   .then((res) => res.json())
@@ -16,7 +18,7 @@ function EventDetail() {
  useEffect(() =>{
   getData()
  },[])
-
+ let uri = `https://res.cloudinary.com/dqokryv6u${Event.banner}`
   return (
     <div className="detail">
       <Carousel variant="light">
@@ -54,6 +56,9 @@ function EventDetail() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      <Row className="item">
+        <Col className="info"><img src={uri}/></Col>
+      </Row>
       <Row className="item">
       <Col className="info">
         <h2>{Event.title}</h2>

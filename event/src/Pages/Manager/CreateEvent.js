@@ -11,7 +11,12 @@ function CreateEvent() {
   const [type, setType] = useState("")
   const [created_at, setCreated_at] = useState("")
   const [date, setDate] = useState("")
+  const [banner, setBanner] = useState()
   const [time_created, setTime_created] = useState("")
+
+  function handleImageChange(e) {
+    setBanner(URL.createObjectURL(e.target.files[0]));
+  }
   let handleSubmit = async (e) => {
   
     e.preventDefault();
@@ -19,8 +24,8 @@ function CreateEvent() {
         let res =  await fetch("http://localhost:8000/events/new",{
           method: "POST",
           headers: {
-            'Content-Type': 'application/json',
-            'accept':'application/json'
+            'Content-Type': 'multipart/form-data',
+            'accept':'multipart/form-data'
           },
           body: JSON.stringify({
               title: title,
@@ -31,6 +36,7 @@ function CreateEvent() {
               created_at: created_at,
               date: date,
               time_created: time_created,
+              banner: banner,
           }),
         });
         let resJson = await res.json();
@@ -42,6 +48,7 @@ function CreateEvent() {
           setType("")
           setCreated_at("")
           setDate("")
+          setBanner()
           setTime_created("")
         }
         let path = '/Pages/User/Success'
@@ -100,6 +107,12 @@ function CreateEvent() {
           <Form.Text className="text-muted"> 
           When is it happening
           </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Event Banner</Form.Label>
+          <Form.Control type="file" placeholder="Event Poster" onChange={handleImageChange}  accept="image/jpg, image/png, image/gif, image/jpeg"/>
+         {<img src={banner} alt="banner for the event"/>}
         </Form.Group>
 
         <Form.Group className="mb-3">

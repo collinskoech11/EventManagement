@@ -12,6 +12,19 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+# import django_heroku
+# django_heroku.settings(locals())
+
+cloudinary.config(
+    cloud_name = "dqokryv6u",
+    api_key = "531494647373777",
+    api_secret = "u_3G7mg9gcIKk902fbw3knaXjcY",
+)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -59,7 +72,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'event.apps.EventConfig',
-    'corsheaders'
+    'corsheaders',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -155,7 +169,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS_ALLOWED_ORIGINS = [
 # "*"
 # ]
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 
 # URL used to access the media
 MEDIA_URL = '/media/'
+

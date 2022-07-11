@@ -1,9 +1,9 @@
 from django.db import models
-
 # Create your models here.
 from django.db import models
 from django.forms import ImageField
 from django.utils import timezone
+from cloudinary.models import CloudinaryField
 import datetime 
 # from cloudinary.models import CloudinaryField
 # from cloudflare_images.field import CloudflareImagesField
@@ -18,12 +18,12 @@ class AppUser(models.Model):
     password = models.CharField(max_length=200)
     location = models.CharField(max_length=200)
     
-def upload_to(instance, filename):
-    return 'images/{filename}'.format(filename=filename)
+# def upload_to(instance, filename):
+#     return 'images/{filename}'.format(filename=filename)
 # Create your models here.
 class Event(models.Model):
     title = models.CharField(max_length=200)
-    banner = models.ImageField(upload_to=upload_to, blank=True, null=True)
+    banner = CloudinaryField('image')
     # dspl_image = models.CharField(max_length=200, null=True, blank=True)
     Venue= models.CharField(max_length=200, null=True, blank=True)
     category = models.CharField(max_length=200,default='get pesa guide')
