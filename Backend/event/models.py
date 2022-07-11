@@ -18,11 +18,12 @@ class AppUser(models.Model):
     password = models.CharField(max_length=200)
     location = models.CharField(max_length=200)
     
-
+def upload_to(instance, filename):
+    return 'images/{filename}'.format(filename=filename)
 # Create your models here.
 class Event(models.Model):
     title = models.CharField(max_length=200)
-    # image = CloudinaryField('image', null=True, blank=True)
+    banner = models.ImageField(upload_to=upload_to, blank=True, null=True)
     # dspl_image = models.CharField(max_length=200, null=True, blank=True)
     Venue= models.CharField(max_length=200, null=True, blank=True)
     category = models.CharField(max_length=200,default='get pesa guide')
