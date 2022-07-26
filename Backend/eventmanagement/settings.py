@@ -20,9 +20,9 @@ import cloudinary.api
 # django_heroku.settings(locals())
 
 cloudinary.config(
-    cloud_name = "dqokryv6u",
-    api_key = "531494647373777",
-    api_secret = "u_3G7mg9gcIKk902fbw3knaXjcY",
+    cloud_name = "deqngnkr5",
+    api_key = "114469719628463",
+    api_secret = "eckyjH7ySIG95ok2veI8wAfvjd4",
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -116,10 +116,10 @@ WSGI_APPLICATION = 'eventmanagement.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'emakpfqj',
-        'USER':'emakpfqj',
-        'PASSWORD':'ThyrXrQnS26IiIT77czSECb_icjk7jE-',
-        'HOST':'rogue.db.elephantsql.com',
+        'NAME': 'ujldcoda',
+        'USER':'ujldcoda',
+        'PASSWORD':'oy94ha233FK_1Oaz6oAN5CtxURjdsBOP',
+        'HOST':'kesavan.db.elephantsql.com',
     }
 }
 
