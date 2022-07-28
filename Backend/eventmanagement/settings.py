@@ -115,11 +115,8 @@ WSGI_APPLICATION = 'eventmanagement.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ujldcoda',
-        'USER':'ujldcoda',
-        'PASSWORD':'oy94ha233FK_1Oaz6oAN5CtxURjdsBOP',
-        'HOST':'kesavan.db.elephantsql.com',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR/'db.sqlite3',
     }
 }
 

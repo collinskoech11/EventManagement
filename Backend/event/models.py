@@ -23,7 +23,7 @@ class AppUser(models.Model):
 # Create your models here.
 class Event(models.Model):
     title = models.CharField(max_length=200)
-    banner = CloudinaryField('image')
+    banner = CloudinaryField('image', null=True, blank=True)
     # dspl_image = models.CharField(max_length=200, null=True, blank=True)
     Venue= models.CharField(max_length=200, null=True, blank=True)
     category = models.CharField(max_length=200,default='get pesa guide')

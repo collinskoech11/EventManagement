@@ -41,7 +41,7 @@ function ViewRsvps() {
               {item.event} | <b>{item.Company}</b><br/>
               {item.created_at}<br/>
             </Card.Text>
-            
+            <Button variant="primary">Register for the event</Button>
           </Card.Body>
         </Card>
         </div>

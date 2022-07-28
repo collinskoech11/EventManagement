@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import {Card, Button, Nav} from 'react-bootstrap'
-import {useNavigate} from 'react-router-dom'
 // http://127.0.0.1:8000/
 
 function MyEvents() {

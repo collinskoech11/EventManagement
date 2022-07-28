@@ -10,7 +10,8 @@ function UserCreation() {
         const [Company, setCompany]= useState("");
         const [password, setPassword]= useState("");
         const [location, setLocation]= useState("");
-    let handleSubmit = async (e) => {
+
+  let handleSubmit = async (e) => {
     e.preventDefault();
     try{
         let res =  await fetch("http://localhost:8000/appusers/new",{
