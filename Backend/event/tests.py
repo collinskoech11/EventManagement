@@ -1,5 +1,10 @@
-from django.test import TestCase
+from django.test import TestCase, Client
+from django.urls import reverse
+from rest_framework import status
 from .models import *
+from  .serializers import *
+
+client = Client()
 
 # Create your tests here.
 class MyAppUserTestCase(TestCase):
@@ -44,3 +49,33 @@ class MyAppUserTestCase(TestCase):
         print("Testing the Rsvp Model")
         sampleRsvpTest = Rsvp.objects.get(name="Faith")
         print("Sample Rsvp from a user => ", sampleRsvpTest.name)
+    def test_get_all_rsvps(self):# test get rsvps endpoint
+        #get an api response
+        response  = client.get(reverse('rsvplisting'))
+        #get data from db
+        rsvps = Rsvp.objects.all()
+        serializer  = RsvpSerializer(rsvps, many=True)
+        print("Rsvp Test Data ===============================================================================")
+        print(response.data)
+        self.assertEqual(response.data, serializer.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+    def test_get_all_events(self):# test get all events endpoint
+        response = client.get(reverse('eventslisting'))
+        events = Event.objects.all()
+        serializer = EventSerializer(events, many=True)
+        print("Event Test Data ==============================================================================")
+        print(response.data)
+        self.assertEqual(response.data, serializer.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+    def test_get_all_users(self):
+        response = client.get(reverse('appuserslisting'))
+        users = AppUser.objects.all()
+        serializer = AppUserSerializer(users, many=True)
+        print('Users Test data ===============================================================================')
+        print(response.data)
+        self.assertEqual(response.data, serializer.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+
+
+#initialize app client with
