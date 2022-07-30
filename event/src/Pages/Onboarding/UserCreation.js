@@ -1,6 +1,6 @@
-import {Form, Group, Label, Control, Check, Button} from 'react-bootstrap'
+import {Form, Button} from 'react-bootstrap'
 import {useNavigate} from 'react-router-dom';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 function UserCreation() {
   let navigate = useNavigate()
@@ -30,7 +30,7 @@ function UserCreation() {
           }),
         });
         let resJson = await res.json();
-        if (res.status == 200){
+        if (res.status === 200){
           setUsername("")
           setEmail("")
           setRole("")

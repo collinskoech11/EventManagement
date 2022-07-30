@@ -17,7 +17,7 @@ function EventDetail() {
  }
  useEffect(() =>{
   getData()
- },[])
+ },[getData])
  let uri = `https://res.cloudinary.com/dqokryv6u${Event.banner}`
   console.log(`EventBanner uri${Event.Banner}`)
   return (
@@ -58,7 +58,7 @@ function EventDetail() {
         </Carousel.Item>
       </Carousel>
       <Row className="item">
-        <Col className="info"><img src={uri}/></Col>
+        <Col className="info"><img src={uri} alt="event Banner"/></Col>
       </Row>
       <Row className="item">
       <Col className="info">

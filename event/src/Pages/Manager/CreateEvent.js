@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
-import {Form, Group, Label, Control, Check, Button} from 'react-bootstrap'
+import {Form, Button} from 'react-bootstrap'
 
 function CreateEvent() {
   let navigate = useNavigate()
