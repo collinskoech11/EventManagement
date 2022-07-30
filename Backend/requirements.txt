@@ -1,7 +1,7 @@
 asgiref==3.5.2
 certifi==2022.6.15
 cloudinary==1.29.0
-Django==4.0.5
+Django==3.2.13
 django-cors-headers==3.13.0
 django-rest-framework==0.1.0
 djangorestframework==3.13.1
