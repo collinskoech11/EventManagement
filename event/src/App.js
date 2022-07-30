@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header'
 import Home from './Pages/Home';
@@ -18,18 +18,20 @@ function App() {
     <>
     <Header/>
     <div className="pusher"></div>
-    <Routes>
-      <Route path="/" element={<Home/>}/>
-        <Route path="/Pages/EventDetail" element={<EventDetail/>}/>
-        <Route path="/Pages/Manager/CreateEvent" element={<CreateEvent/>}/>
-        <Route path="/Pages/Manager/MyEvents" element={<MyEvents/>}/>
-        <Route path="/Pages/Manager/ViewRsvps" element={<ViewRsvps/>}/>
-        <Route path="/Pages/User/SubmitRsvp" element={<SubmitRsvp/>}/>
-        <Route path="/Pages/User/Success" element={<Success/>}/>
-        <Route path="/Pages/User/UpcomingEvents" element={<UpcomingEvents/>}/>
-        <Route path="/Pages/Onboarding/UserCreation" element={<UserCreation/>}/>
-        <Route path="/Pages/Onboarding/ListUsers" element={<ListUsers/>}/>
-    </Routes>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+          <Route path="/Pages/EventDetail" pathname="EventDetail" element={<EventDetail/>}/>
+          <Route path="/Pages/Manager/CreateEvent" pathname="CreateEvent" element={<CreateEvent/>}/>
+          <Route path="/Pages/Manager/MyEvents" pathname="MyEvents" element={<MyEvents/>}/>
+          <Route path="/Pages/Manager/ViewRsvps" pathname="ViewRsvps" element={<ViewRsvps/>}/>
+          <Route path="/Pages/User/SubmitRsvp" pathname="SubmitRsvp" element={<SubmitRsvp/>}/>
+          <Route path="/Pages/User/Success" pathname="Success" element={<Success/>}/>
+          <Route path="/Pages/User/UpcomingEvents" pathname="UpcomingEvents" element={<UpcomingEvents/>}/>
+          <Route path="/Pages/Onboarding/UserCreation" pathname="UserCreation" element={<UserCreation/>}/>
+          <Route path="/Pages/Onboarding/ListUsers"  pathname="ListUsers"element={<ListUsers/>}/>
+      </Routes>
+    </Router>
     </>
   );
 }
