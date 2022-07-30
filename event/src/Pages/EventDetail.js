@@ -19,6 +19,7 @@ function EventDetail() {
   getData()
  },[])
  let uri = `https://res.cloudinary.com/dqokryv6u${Event.banner}`
+  console.log(`EventBanner uri${Event.Banner}`)
   return (
     <div className="detail">
       <Carousel variant="light">
