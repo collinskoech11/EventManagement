@@ -30,6 +30,7 @@ function UserCreation() {
           }),
         });
         let resJson = await res.json();
+        console.log(resJson)
         if (res.status === 200){
           setUsername("")
           setEmail("")

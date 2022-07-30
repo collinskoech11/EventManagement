@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Form, Group, Label, Control, Check, Button} from 'react-bootstrap'
+import {Form,  Button} from 'react-bootstrap'
 import {useNavigate} from 'react-router-dom'
 
 function SubmitRsvp() {
@@ -27,7 +27,8 @@ function SubmitRsvp() {
           }),
         });
         let resJson = await res.json();
-        if (res.status == 200){
+        console.log(resJson)
+        if (res.status === 200){
             setName("")
             setEmail("")
             setEvent("")

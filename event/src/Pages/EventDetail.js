@@ -7,17 +7,18 @@ function EventDetail() {
   const location = useLocation();
   // const [book] = useState(1);
   console.log(location.state.x)
- const getData = () => {
-  fetch(`http://localhost:8000/event/detail/${location.state.x}`, {mode: 'cors'})
-  .then((res) => res.json())
-  .then((res) => {
-    console.log(res)
-    fetchEvent(res)
-  })
- }
+
  useEffect(() =>{
+  const getData = () => {
+    fetch(`http://localhost:8000/event/detail/${location.state.x}`, {mode: 'cors'})
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res)
+      fetchEvent(res)
+    })
+   }
   getData()
- },[getData])
+ },[location.state.x])
  let uri = `https://res.cloudinary.com/dqokryv6u${Event.banner}`
   console.log(`EventBanner uri${Event.Banner}`)
   return (
