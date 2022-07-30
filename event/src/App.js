@@ -1,4 +1,4 @@
-import { Router, Route, Routes } from 'react-router-dom';
+import {Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header'
 import Home from './Pages/Home';
@@ -18,7 +18,6 @@ function App() {
     <>
     <Header/>
     <div className="pusher"></div>
-    <Router>
       <Routes>
         <Route path="/" element={<Home/>}/>
           <Route path="/Pages/EventDetail" pathname="EventDetail" element={<EventDetail/>}/>
@@ -31,7 +30,6 @@ function App() {
           <Route path="/Pages/Onboarding/UserCreation" pathname="UserCreation" element={<UserCreation/>}/>
           <Route path="/Pages/Onboarding/ListUsers"  pathname="ListUsers"element={<ListUsers/>}/>
       </Routes>
-    </Router>
     </>
   );
 }
