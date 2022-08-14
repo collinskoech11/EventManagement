@@ -19,7 +19,7 @@ function App() {
     <Header/>
     <div className="pusher"></div>
       <Routes>
-        <Route path="/" element={<Home/>}/>
+          <Route path="/" element={<Home/>}/>
           <Route path="/Pages/EventDetail" pathname="EventDetail" element={<EventDetail/>}/>
           <Route path="/Pages/Manager/CreateEvent" pathname="CreateEvent" element={<CreateEvent/>}/>
           <Route path="/Pages/Manager/MyEvents" pathname="MyEvents" element={<MyEvents/>}/>

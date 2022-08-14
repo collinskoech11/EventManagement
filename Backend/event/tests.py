@@ -79,3 +79,16 @@ class MyAppUserTestCase(TestCase):
 
 
 #initialize app client with
+#Start Backend -> 8000
+# cd Backend 
+# cd env
+# cd Scripts
+# .\activate.bat
+# cd ..
+# cd ..
+# python manage.py runserver
+
+#start frontend  3000
+# cd event
+# npm install
+# nm start

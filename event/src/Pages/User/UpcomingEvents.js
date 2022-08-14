@@ -7,7 +7,6 @@ import {useNavigate} from 'react-router-dom'
 function UpcomingEvents() {
 
     const [Events, fetchEvents] = useState([])
-    const [book, setBook] = useState(1)
 
     const getData = () => {
         fetch('http://localhost:8000/events',{mode:'cors'})
@@ -21,22 +20,17 @@ function UpcomingEvents() {
     useEffect(() => {
       getData()
     }, [])
+
     let navigate = useNavigate()
      const handleClick = (event) => {
-      setBook((event.currentTarget.id));
-      console.log(book);
       let path = '/Pages/EventDetail'
-      navigate(path, {state:{x:book}})
-        // { component: <Navigate to="/Pages/EventDetail"/>}
-      // redirects to /Pages/EventDetail
+      navigate(path, {state:{x:event.currentTarget.id}})
     }
+
     const handleSubmit = (event, x) => {
-      setBook(event.currentTarget.id)
       console.log(x)
       let path = '/Pages/User/SubmitRsvp'
-      // navigate(path)
       navigate(path, {state:{x:event.currentTarget.id}})
-      // redirects to /Pages/User/SubmitRsvp
     }
   return (
     <>
@@ -45,7 +39,7 @@ function UpcomingEvents() {
     <h4>Upcoming Events</h4>
 
     {Events.map((item,i) => {
-      let x = item.id;
+      // let x = item.id;
       return (
         <div className="mydiv" key={i}>
         <Card>
@@ -63,7 +57,7 @@ function UpcomingEvents() {
               {item.type} | <b>{item.Venue}</b><br/>
               {item.date}<br/>
             </Card.Text>
-              <Button variant="primary" id={x} onClick={handleClick}>View Event Details</Button><br/><br/>
+              <Button variant="primary" id={item.id} onClick={handleClick}>View Event Details</Button><br/><br/>
               <Button onClick={handleSubmit} variant="primary">Register for the event</Button>
           </Card.Body>
         </Card>
